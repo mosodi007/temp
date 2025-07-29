@@ -1,4 +1,18 @@
-import JSZip from 'https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js';
+// Load JSZip from CDN using script tag approach
+const script = document.createElement('script');
+script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+document.head.appendChild(script);
+
+// Wait for JSZip to load
+function waitForJSZip() {
+    return new Promise((resolve) => {
+        if (window.JSZip) {
+            resolve();
+        } else {
+            script.onload = () => resolve();
+        }
+    });
+}
 
 class ZipExtractor {
     constructor() {
@@ -37,6 +51,9 @@ class ZipExtractor {
     
     async extractArchive() {
         try {
+            // Ensure JSZip is loaded
+            await waitForJSZip();
+            
             this.extractBtn.disabled = true;
             this.showStatus('Loading Archive.zip...', 'info');
             
@@ -50,7 +67,7 @@ class ZipExtractor {
             this.showStatus('Reading ZIP file...', 'info');
             
             // Load the ZIP file
-            const zip = new JSZip();
+            const zip = new window.JSZip();
             const zipData = await zip.loadAsync(arrayBuffer);
             
             this.showStatus('Extracting files...', 'info');
