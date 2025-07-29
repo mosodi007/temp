@@ -3,7 +3,8 @@
     "dev": "http-server . -p 3000 -o"
   },
   "dependencies": {
-    "jszip": "^3.10.1"
+    "jszip": "^3.10.1",
+    "unzip": "^0.1.11"
   },
   "devDependencies": {
     "http-server": "^14.1.1"
