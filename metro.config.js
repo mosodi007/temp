@@ -12,7 +12,8 @@ module.exports = (() => {
   config.resolver = {
     ...resolver,
     assetExts: resolver.assetExts.filter((ext) => ext !== "svg"),
-    sourceExts: [...resolver.sourceExts, "svg"]
+    sourceExts: [...resolver.sourceExts, "svg"],
+    blacklistRE: /node_modules\/lottie-react-native\/lib\/module\/LottieView\/index\.web\.js$/
   };
 
   return config;
