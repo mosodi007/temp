@@ -1,4 +1,4 @@
-import { JSZip } from './node_modules/jszip/dist/jszip.module.js';
+import JSZip from './node_modules/jszip/dist/jszip.min.js';
 
 class ZipExtractor {
     constructor() {
@@ -131,6 +131,6 @@ class ZipExtractor {
 }
 
 // Initialize the extractor when the page loads
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
     new ZipExtractor();
 });
