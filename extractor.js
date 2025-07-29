@@ -1,4 +1,4 @@
-import JSZip from './node_modules/jszip/dist/jszip.module.js';
+import { JSZip } from './node_modules/jszip/dist/jszip.module.js';
 
 class ZipExtractor {
     constructor() {
